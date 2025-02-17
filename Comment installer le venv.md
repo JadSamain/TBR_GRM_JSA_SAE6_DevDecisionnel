@@ -7,9 +7,9 @@ pip install env
 ```
 
 ## Ensuite, créer un venv
-### Ici, on va l'installer dans le fichier "Code", qui est le fichier dédié au dev. On va nommer notre env "SAE_venv"
+### Ici, on va l'installer dans le dossier "Code", qui est le dossier dédié au dev. On va nommer notre env "SAE_venv"
 
-On oublie pas de se mettre dans le bon répertoire de fichier dans son terminal
+On oublie pas de se mettre dans le bon répertoire dans son terminal
 ```
 cd Code
 ```
@@ -20,7 +20,7 @@ python3 -m venv SAE_venv
 
 ## Quand l'environnement est crée, il faut l'exécuter !
 
-Pour une architecture POSIX (Linux, Apple etc...) :
+#### Pour une architecture POSIX (Linux, Apple etc...) :
 ```
 source SAE_venv/bin/activate
 ```
