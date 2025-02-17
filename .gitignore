@@ -1,7 +1,9 @@
 # Ignorer tout dans SAE_Dev/ (le venv)
-SAE_Dev/*
+Code/SAE_venv
+
 
 # Ne pas ignorer le fichier requirements.txt
-!SAE_Dev/requirements.txt
-
+!Code/SAE_venv/requirements.txt
+# Ignorer les fichiers .log
+*.log
 .DS_Store
