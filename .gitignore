@@ -7,3 +7,7 @@ Code/SAE_venv
 # Ignorer les fichiers .log
 *.log
 .DS_Store
+
+# Ignorer les fichiers de django admin
+Code/src/Energy
+Code/src/manage.py
