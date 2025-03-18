@@ -1,9 +1,9 @@
 import streamlit as st
 
 def main():
-    st.title("Welcome to My Streamlit App")
-    st.header("This is a header")
-    st.subheader("This is a subheader")
+    st.title("Analyse de données énergétiques")
+    st.header("SAÉ 6 - Développement d'un outil décisionnel")
+    st.subheader("Gaultier RAIMBAULT - Thibault RENAULT - Jad SAMAIN")
     st.text("This is some text")
 
     if st.button("Click me"):
