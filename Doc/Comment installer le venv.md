@@ -7,32 +7,32 @@ pip install env
 ```
 
 ## Ensuite, créer un venv
-### Ici, on va l'installer dans le dossier "Code", qui est le dossier dédié au dev. On va nommer notre env "SAE_venv"
+### Ici, on va l'installer dans la racine de notre projet, qui est le dossier dédié au dev. On va nommer notre env ".venv" afin de respecter les habitudes de programmation
 
 On oublie pas de se mettre dans le bon répertoire dans son terminal
 ```
-cd Code
+cd ...\TBR_GRM_JSA_SAE6_DevDecisionnel
 ```
 puis on crée l'environnement de dev
 ```
-python -m venv SAE_venv
+python -m venv .venv
 ```
 
 ## Quand l'environnement est crée, il faut l'exécuter !
 
 #### Pour une architecture POSIX (Linux, Apple etc...) :
 ```
-source SAE_venv/bin/activate
+source .venv/bin/activate
 ```
 
 #### Pour une architecture Windows : 
 Dans un terminal :
 ```
-SAE_venv\Scripts\activate.bat
+.venv\Scripts\activate.bat
 ```
 Dans un terminal PowerShell :
 ```
-SAE_venv\Scripts\activate.ps1
+.venv\Scripts\activate.ps1
 ```
 
 ## Maintenant, on va installer les mêmes packages pour tout le monde, pour assurer le bon fonctionnement du projet, et que tout le monde ait les mêmes dépendances de packages :
