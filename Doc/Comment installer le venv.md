@@ -15,7 +15,7 @@ cd Code
 ```
 puis on crée l'environnement de dev
 ```
-python3 -m venv SAE_venv
+python -m venv SAE_venv
 ```
 
 ## Quand l'environnement est crée, il faut l'exécuter !
