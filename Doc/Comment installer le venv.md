@@ -46,7 +46,7 @@ Dans un terminal PowerShell :
 ## Maintenant, on va installer les mêmes packages pour tout le monde, pour assurer le bon fonctionnement du projet, et que tout le monde ait les mêmes dépendances de packages :
 
 ```
-pip install -r 'TBR_GRM_JSA_SAE6_DevDecisionnel/Code/src/Back/requirements.txt'
+pip install -r 'Code/src/Back/requirements.txt'
 ```
 
 # C'est tout bon ! Vous pouvez utiliser l'app !
