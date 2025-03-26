@@ -1,9 +1,6 @@
 import sqlite3
 
 def create_db():
-<<<<<<< HEAD
-    conn = sqlite3.connect('db.sqlite')
-=======
     try:
         conn = sqlite3.connect('TBR_GRM_JSA_SAE6_DevDecisionnel/Code/src/Back/db/iris.sqlite')
         print('Connexion réussie')
@@ -87,4 +84,3 @@ def create_db():
     print("Tables créées avec succès")
     
 create_db()
->>>>>>> Creation-db
