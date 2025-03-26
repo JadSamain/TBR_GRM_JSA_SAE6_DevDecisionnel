@@ -1,6 +1,6 @@
 # Ignorer tout dans SAE_Dev/ (le venv)
 Code/SAE_venv
-
+.venv
 
 # Ne pas ignorer le fichier requirements.txt
 !Code/SAE_venv/requirements.txt
