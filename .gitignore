@@ -11,3 +11,7 @@ Code/SAE_venv
 # Ignorer les fichiers de django admin
 Code/src/Energy
 Code/src/manage.py
+
+TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
+.idea/dataSources.local.xml
+.idea
