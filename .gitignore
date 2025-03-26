@@ -12,6 +12,12 @@ Code/SAE_venv
 Code/src/Energy
 Code/src/manage.py
 
+<<<<<<< HEAD
 TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 .idea/dataSources.local.xml
 .idea
+=======
+/Users/jadsamain/Developer/TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
+.idea/vcs.xml
+.idea/dataSources.xml
+>>>>>>> Creation-db
