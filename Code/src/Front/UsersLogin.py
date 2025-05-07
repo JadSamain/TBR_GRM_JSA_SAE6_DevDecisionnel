@@ -1,15 +1,13 @@
-# * Importer les bibliothèques nécessaires *
 import streamlit as st
 import sqlite3
 import bcrypt
 import os
 import time
-import re  # Pour la validation du mot de passe
+import re
 
 # * Définir le chemin de la base de données dans le dossier souhaité *
 DB_PATH = os.path.join("Code", "src", "Back", "db", "users.sqlite")
 
-# * Initialisation de la base de données *
 def init_db():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
@@ -24,7 +22,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-# * Ajouter un utilisateur *
 def add_user(username, password):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -38,7 +35,6 @@ def add_user(username, password):
     finally:
         conn.close()
 
-# * Vérifier les identifiants *
 def authenticate_user(username, password):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -46,34 +42,25 @@ def authenticate_user(username, password):
     result = cursor.fetchone()
     conn.close()
     if result:
-        stored_pw = result[0]
-        return bcrypt.checkpw(password.encode(), stored_pw)
+        return bcrypt.checkpw(password.encode(), result[0])
     return False
 
-# * Vérifier la validité du mot de passe *
 def is_valid_password(password):
-    if len(password) < 8:
-        return False
-    if not re.search(r"\d", password):
-        return False
-    if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
-        return False
-    return True
+    return (
+        len(password) >= 8 and 
+        re.search(r"\d", password) and 
+        re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)
+    )
 
-# * Réinitialiser les champs de saisie *
 def reset_fields():
     st.session_state.username = ""
     st.session_state.password = ""
     st.session_state.confirm_password = ""
 
-# * Application principale *
-def main():
-    st.title("Application sécurisée avec SQLite 🔐")
+def show_login_page():
+    st.title("Connexion sécurisée à l'application")
     init_db()
 
-    # Initialisation des états
-    if 'logged_in' not in st.session_state:
-        st.session_state.logged_in = False
     if 'menu' not in st.session_state:
         st.session_state.menu = "Connexion"
     if 'username' not in st.session_state:
@@ -83,75 +70,46 @@ def main():
     if 'confirm_password' not in st.session_state:
         st.session_state.confirm_password = ""
 
-    # * Interface création de compte *
     if st.session_state.menu == "Créer un compte":
         st.subheader("Créer un compte")
-        username = st.text_input("Nom d'utilisateur", value=st.session_state.username, key="username_create")
-        password = st.text_input("Mot de passe", type="password", value=st.session_state.password, key="password_create")
-        confirm_password = st.text_input("Confirmer le mot de passe", type="password", value=st.session_state.confirm_password, key="confirm_password_create")
+        username = st.text_input("Nom d'utilisateur", key="username_create")
+        password = st.text_input("Mot de passe", type="password", key="password_create")
+        confirm_password = st.text_input("Confirmer le mot de passe", type="password", key="confirm_password_create")
 
-        # Gestion des actions après clic
-        inscription_clicked = False
-
-        col_spacer, col1, col2 = st.columns([4, 1, 2])
-        with col1:
-            if st.button("S'inscrire"):
-                inscription_clicked = True
-        with col2:
-            if st.button("Déjà un compte ?"):
-                st.session_state.menu = "Connexion"
-                reset_fields()
-                st.rerun()
-
-        # Affichage des messages en dehors des colonnes
-        if inscription_clicked:
+        col_spacer, col1, col2, col_spacer = st.columns([1, 1, 1, 1])
+        if col1.button("S'inscrire"):
             if password != confirm_password:
                 st.error("❌ Les mots de passe ne correspondent pas.")
             elif not is_valid_password(password):
-                st.error("❗ Le mot de passe doit contenir au moins 8 caractères, un chiffre et un caractère spécial.")
+                st.error("⚠️ Le mot de passe doit contenir au moins 8 caractères, un chiffre et un caractère spécial.")
             elif add_user(username, password):
-                st.success("✅ Compte créé avec succès ! Redirection vers la connexion...⏳")
+                st.success("✅ Compte créé avec succès ! Redirection vers la connexion...")
                 time.sleep(2)
                 st.session_state.menu = "Connexion"
                 reset_fields()
                 st.rerun()
             else:
-                st.error("❌ Nom d'utilisateur déjà utilisé.")
+                st.error("❌ Nom d'utilisateur déjà pris.")
+        if col2.button("Déjà un compte ?"):
+            st.session_state.menu = "Connexion"
+            reset_fields()
+            st.rerun()
 
-    # * Interface connexion *
     elif st.session_state.menu == "Connexion":
         st.subheader("Connexion")
-        username = st.text_input("Nom d'utilisateur", value=st.session_state.username, key="username_login")
-        password = st.text_input("Mot de passe", type="password", value=st.session_state.password, key="password_login")
+        username = st.text_input("Nom d'utilisateur", key="username_login")
+        password = st.text_input("Mot de passe", type="password", key="password_login")
 
-        login_clicked = False
-
-        col_spacer, col1, col2 = st.columns([3, 1, 1])
-        with col1:
-            if st.button("Se connecter"):
-                login_clicked = True
-        with col2:
-            if st.button("Créer un compte !"):
-                st.session_state.menu = "Créer un compte"
-                reset_fields()
-                st.rerun()
-
-        if login_clicked:
+        col_spacer, col1, col2 = st.columns([1, 2,2])
+        if col1.button("Se connecter"):
             if authenticate_user(username, password):
                 st.session_state.logged_in = True
                 st.session_state.username = username
-                st.success(f"✅ Bienvenue {username} !")
+                st.success(f"Bienvenue {username} !")
+                st.rerun()
             else:
-                st.error("❌ Nom d'utilisateur ou mot de passe incorrect.")
-
-    # * Interface utilisateur connecté *
-    if st.session_state.logged_in:
-        st.write(f"🎉 Bienvenue, {st.session_state.username} ! Voici le contenu protégé.")
-        if st.button("Déconnexion"):
-            st.session_state.logged_in = False
+                st.error("❌ Identifiants incorrects.")
+        if col2.button("Créer un compte"):
+            st.session_state.menu = "Créer un compte"
             reset_fields()
-            st.session_state.menu = "Connexion"
             st.rerun()
-
-if __name__ == "__main__":
-    main()

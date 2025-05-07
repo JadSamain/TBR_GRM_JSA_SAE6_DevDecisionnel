@@ -1,20 +1,17 @@
 import streamlit as st
+from Front.UsersLogin import show_login_page  # Correction de l'import
 
 def main():
-    st.title("Analyse de données énergétiques")
-    st.header("SAÉ 6 - Développement d'un outil décisionnel")
-    st.subheader("Gaultier RAIMBAULT - Thibault RENAULT - Jad SAMAIN")
-    st.text("This is some text")
+    if 'logged_in' not in st.session_state:
+        st.session_state.logged_in = False
 
-    if st.button("Click me"):
-        st.write("Button clicked!")
-
-    name = st.text_input("Enter your name:")
-    if name:
-        st.write(f"Hello, {name}!")
-
-    st.sidebar.title("Sidebar")
-    st.sidebar.write("This is the sidebar")
+    if st.session_state.logged_in:
+        st.write(f"🎉 Bienvenue, {st.session_state.username} ! (Zone post-authentification à venir...)")
+        if st.button("Déconnexion"):
+            st.session_state.logged_in = False
+            st.rerun()
+    else:
+        show_login_page()
 
 if __name__ == "__main__":
     main()
