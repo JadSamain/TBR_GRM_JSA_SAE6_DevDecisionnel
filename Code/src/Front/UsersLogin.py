@@ -58,7 +58,7 @@ def reset_fields():
     st.session_state.confirm_password = ""
 
 def show_login_page():
-    st.title("Connexion sécurisée à l'application")
+    st.title("🔐 Connexion à Stat & More")
     init_db()
 
     if 'menu' not in st.session_state:
@@ -83,7 +83,7 @@ def show_login_page():
             elif not is_valid_password(password):
                 st.error("⚠️ Le mot de passe doit contenir au moins 8 caractères, un chiffre et un caractère spécial.")
             elif add_user(username, password):
-                st.success("✅ Compte créé avec succès ! Redirection vers la connexion...")
+                st.success("✅ Compte créé avec succès ! Redirection vers la connexion...⏳")
                 time.sleep(2)
                 st.session_state.menu = "Connexion"
                 reset_fields()
@@ -100,10 +100,10 @@ def show_login_page():
         username = st.text_input("Nom d'utilisateur", key="username_login")
         password = st.text_input("Mot de passe", type="password", key="password_login")
 
-        col_spacer, col1, col2 = st.columns([1, 2,2])
+        col_spacer, col1, col2 = st.columns([1, 2, 2])
         if col1.button("Se connecter"):
             if authenticate_user(username, password):
-                st.session_state.logged_in = True
+                st.session_state["is_logged_in"] = True
                 st.session_state.username = username
                 st.success(f"Bienvenue {username} !")
                 st.rerun()
