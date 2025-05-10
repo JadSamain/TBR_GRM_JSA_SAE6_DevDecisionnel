@@ -23,6 +23,7 @@ TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 # Ignorer la base de données SQLite
 Code/src/Back/db/iris.db
 
-# Ignorer le répertoire contenant les fichiers extraits
-Data/Data_brute/
-!Data/Data_brute/Data_Iris.zip
+Data/Data_traitee
+
+# Ignorer le répertoire __pycache__ de Scripts
+Code/src/Back/Scripts/__pycache__

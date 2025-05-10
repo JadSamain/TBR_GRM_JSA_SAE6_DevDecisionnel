@@ -4,6 +4,11 @@ import pandas as pd
 import openpyxl
 from datetime import datetime
 import chardet
+from unzip_files import unzip_files
+# Dézippe les fichiers avant de les traiter
+unzip_files()
+# Chemins des dossiers
+
 
 SOURCE_DIR = r"Data/Data_brute"
 OUTPUT_DIR = r"Data/Data_traitee"
