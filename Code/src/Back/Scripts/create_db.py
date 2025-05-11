@@ -1,8 +1,15 @@
+import os
 import sqlite3
 
 def create_db():
+    # Define the path to the database file
+    db_path = 'Code\src\Back\db\iris.db'
+
+    # Create directories if they do not exist
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
     try:
-        conn = sqlite3.connect('TBR_GRM_JSA_SAE6_DevDecisionnel/Code/src/Back/db/iris.sqlite')
+        conn = sqlite3.connect(db_path)
         print('Connexion réussie')
     except sqlite3.Error as e:
         print(f'Erreur lors de la connexion à la base de données: {e}')
@@ -82,5 +89,5 @@ def create_db():
     conn.commit()
     conn.close()
     print("Tables créées avec succès")
-    
+
 create_db()
