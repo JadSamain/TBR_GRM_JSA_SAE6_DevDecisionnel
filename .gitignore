@@ -20,3 +20,4 @@ TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 .idea/dataSources.xml
 
 Code/src/Front/__pycache__
+Code/src/Back/Scripts/__pycache__
