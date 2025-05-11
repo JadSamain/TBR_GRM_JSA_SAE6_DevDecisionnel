@@ -19,6 +19,12 @@ TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 .idea/vcs.xml
 .idea/dataSources.xml
 
+# Ignorer tous les dossiers __pycache__ et fichiers .pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Les règles spécifiques peuvent rester mais sont redondantes
 Code/src/Front/__pycache__
 Code/src/Back/Scripts/__pycache__
-Code/src/Back/db/users.sqlite
+Code/src/Front/__pycache__
