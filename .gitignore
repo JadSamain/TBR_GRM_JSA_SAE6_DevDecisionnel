@@ -21,3 +21,4 @@ TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 
 Code/src/Front/__pycache__
 Code/src/Back/Scripts/__pycache__
+Code/src/Back/db/users.sqlite
