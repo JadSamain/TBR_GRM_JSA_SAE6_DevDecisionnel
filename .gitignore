@@ -4,6 +4,7 @@ Code/SAE_venv
 
 # Ne pas ignorer le fichier requirements.txt
 !Code/SAE_venv/requirements.txt
+
 # Ignorer les fichiers .log
 *.log
 .DS_Store
@@ -12,18 +13,19 @@ Code/SAE_venv
 Code/src/Energy
 Code/src/manage.py
 
-TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
+# Ignorer les fichiers de configuration de l'IDE
+.idea/
 .idea/dataSources.local.xml
-.idea
-/Users/jadsamain/Developer/TBR_GRM_JSA_SAE6_DevDecisionnel/.idea
 .idea/vcs.xml
 .idea/dataSources.xml
 
+# Ignorer tous les dossiers __pycache__ et fichiers .pyc
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Ignorer la base de données SQLite
 Code/src/Back/db/iris.db
 
+# Ignorer le répertoire de données traitées
 Data/Data_traitee
-
-# Ignorer le répertoire __pycache__ de Scripts
-Code/src/Back/Scripts/__pycache__
