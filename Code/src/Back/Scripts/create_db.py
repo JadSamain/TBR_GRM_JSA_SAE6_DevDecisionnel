@@ -3,7 +3,7 @@ import sqlite3
 
 def create_db():
     # Define the path to the database file
-    db_path = '../db/iris.db'
+    db_path = 'Code/src/Back/db/iris.sqlite3'
 
     # Create directories if they do not exist
     os.makedirs(os.path.dirname(db_path), exist_ok=True)

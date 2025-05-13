@@ -30,3 +30,4 @@ Code/src/Back/db/iris.db
 # Ignorer le répertoire de données traitées
 Data/Data_traitee
 Code/src/Back/db/users.sqlite
+Code/src/Back/db/iris.sqlite3
