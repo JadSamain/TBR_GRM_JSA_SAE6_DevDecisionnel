@@ -17,9 +17,9 @@ pip3.9 install env
 ## Ensuite, créer un venv
 ### Ici, on va l'installer dans la racine de notre projet, qui est le dossier dédié au dev. On va nommer notre env ".venv" afin de respecter les habitudes de programmation
 
-On oublie pas de se mettre dans le bon répertoire dans son terminal
+Tout d'abord, il ne faut pas oublier de se mettre dans le bon répertoire grâce au terminal !
 ```
-cd ...\TBR_GRM_JSA_SAE6_DevDecisionnel
+cd c:/tmp
 ```
 puis on crée l'environnement de dev
 ```
