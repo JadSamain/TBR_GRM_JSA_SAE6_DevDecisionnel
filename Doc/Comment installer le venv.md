@@ -23,7 +23,7 @@ cd c:/tmp
 ```
 puis on crée l'environnement de dev
 ```
-python3.9 -m venv .venv
+python3 -m venv .venv
 ```
 
 ## Quand l'environnement est créé, il faut l'exécuter !
