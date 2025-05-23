@@ -30,3 +30,8 @@ Code/src/Back/db/iris.db
 # Ignorer le répertoire de données traitées
 Data/Data_traitee
 Code/src/Back/db/users.sqlite
+
+# Ignorer les fichiers de configuration de l'IDE
+.vs/
+.idea/
+.vscode/
